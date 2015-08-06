@@ -1,6 +1,9 @@
 # Content script
 do ($=jQuery) ->
-	nytKey = "f3c37edfcd099580533c530e36e47ed2:17:72571087"
+	if not settings of window
+		window.alert "ERROR! Must set settings.js"
+		throw "ERROR! Must set settings.js"
+	nytKey = window.settings.nytKey
 
 	$(window).bind "keydown", "meta+e", (e) ->
 		$.getJSON "https://api.nytimes.com/svc/topstories/v1/home.json?api-key=#{nytKey}", (response) ->

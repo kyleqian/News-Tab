@@ -2,7 +2,11 @@
 (function() {
   (function($) {
     var nytKey, setStorage;
-    nytKey = "f3c37edfcd099580533c530e36e47ed2:17:72571087";
+    if (!settings in window) {
+      window.alert("ERROR! Must set settings.js");
+      throw "ERROR! Must set settings.js";
+    }
+    nytKey = window.settings.nytKey;
     $(window).bind("keydown", "meta+e", function(e) {
       $.getJSON("https://api.nytimes.com/svc/topstories/v1/home.json?api-key=" + nytKey, function(response) {
         return chrome.storage.local.get({

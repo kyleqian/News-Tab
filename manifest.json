@@ -13,7 +13,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["jquery-1.11.3.min.js", "jquery.hotkeys.js", "content.js"],
+      "js": ["jquery-1.11.3.min.js", "jquery.hotkeys.js", "settings.js", "content.js"],
       "match_about_blank": true,
       "all_frames": true
     }
