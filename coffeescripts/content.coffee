@@ -1,8 +1,8 @@
 # Content script
 do ($=jQuery) ->
 	if not settings of window
-		window.alert "ERROR! Must set settings.js"
-		throw "ERROR! Must set settings.js"
+		window.alert "ERROR! Must set settings.js -- see README"
+		throw "ERROR! Must set settings.js -- see README"
 	nytKey = window.settings.nytKey
 
 	$(window).bind "keydown", "meta+e", (e) ->
