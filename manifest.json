@@ -6,21 +6,21 @@
   "version": "1.0",
  
   "browser_action": {
-   "default_icon": "images/icon.png",
-   "default_popup": "views/popup.html"
+   "default_icon": "app/images/icon.png",
+   "default_popup": "app/views/popup.html"
   },
 
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["lib/jquery-1.11.3.min.js", "lib/jquery.hotkeys.js", "config/settings.js", "scripts/content.js"],
+      "js": ["lib/jquery-1.11.3.min.js", "lib/jquery.hotkeys.js", "config/settings.js", "app/scripts/content.js"],
       "match_about_blank": true,
       "all_frames": true
     }
   ],
 
   "background": {
-    "scripts": ["scripts/background.js"]
+    "scripts": ["app/scripts/background.js"]
   },
 
   "permissions": [
