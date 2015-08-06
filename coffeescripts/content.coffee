@@ -3,10 +3,11 @@ do ($=jQuery) ->
 	if not settings of window
 		window.alert "ERROR! Must set settings.js -- see README"
 		throw "ERROR! Must set settings.js -- see README"
-	nytKey = window.settings.nytKey
+	settings = window.settings
+	nytUrl = "#{settings.nytPrefix}#{settings.nytKey}"
 
-	$(window).bind "keydown", "meta+e", (e) ->
-		$.getJSON "https://api.nytimes.com/svc/topstories/v1/home.json?api-key=#{nytKey}", (response) ->
+	$(window).bind "keydown", settings.tabBind, (e) ->
+		$.getJSON nytUrl, (response) ->
 			chrome.storage.local.get {visited: []}, (object) ->
 				if chrome.runtime.lastError
 					window.alert "getStorage ERROR! => #{chrome.runtime.lastError}"
