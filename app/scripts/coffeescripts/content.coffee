@@ -4,6 +4,15 @@ do ($=jQuery) ->
 		window.alert "ERROR! Must set settings.js -- see README"
 		throw "ERROR! Must set settings.js -- see README"
 
+	# blacklist = [
+	# 	"https://en.wikipedia.org/wiki/Main_Page",
+	# 	"http://www.buzzfeed.com/"
+	# ]
+
+	# document.addEventListener "DOMContentLoaded", ->
+	# 	if blacklist.indexOf(window.location.href) != -1
+	# 		window.alert "dude"
+
 	settings = window.settings
 	nytUrl = "#{settings.nytPrefix}#{settings.nytKey}"
 	$(window).bind "keydown", settings.tabBind, (e) ->
@@ -15,7 +24,7 @@ do ($=jQuery) ->
 					visited = object.visited
 					for entry in response.results
 						url = entry.url
-						if $.inArray(url, visited) == -1
+						if visited.indexOf(url) == -1
 							visited.push(url)
 							setStorage(visited)
 							chrome.runtime.sendMessage {url: url}

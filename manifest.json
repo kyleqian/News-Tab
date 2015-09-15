@@ -14,7 +14,8 @@
     {
       "matches": ["<all_urls>"],
       "js": ["/lib/jquery-1.11.3.min.js", "/lib/jquery.hotkeys.js", "/config/settings.js", "/app/scripts/content.js"],
-      "match_about_blank": true
+      "match_about_blank": true,
+      "run_at": "document_start"
     }
   ],
 
